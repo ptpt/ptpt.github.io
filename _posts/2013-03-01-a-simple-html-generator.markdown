@@ -26,7 +26,7 @@ on the type of each element. For example:
 
 {% highlight javascript %}
 function greet(name) {
-    return $(makeDom(['div', 'hello', ['span', {class: 'strong'}, name]]));
+    return makeDom(['div', 'hello', ['span', {class: 'strong'}, name]]);
 }
 greet('world'); // =>  <div>hello<span class="strong">world</span></div>
 {% endhighlight %}
