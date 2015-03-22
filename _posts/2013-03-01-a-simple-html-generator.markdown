@@ -37,7 +37,7 @@ Here is the code, written in CoffeeScript:
 
 {% highlight coffeescript %}
  makeDom = (array) ->
-    if array.length == 0
+    if not array.length
          return null
 
     if array[0] instanceof HTMLElement
@@ -50,18 +50,19 @@ Here is the code, written in CoffeeScript:
         if toString.call(node) == '[object String]'
             element.appendChild document.createTextNode(node)
         else if node instanceof Text
-            element.appendChild node
+            element.appendChild(node)
 
         # append arrays as child nodes
         else if Array.isArray(node)
-            child = makeDom node
-            element.appendChild child if child?
+            child = makeDom(node)
+            element.appendChild(child) if child?
 
         # append Attr instance and objects as attributes
         else if node instanceof Attr
-            element.setAttributeNode node
+            element.setAttributeNode(node)
         else if node == Object(node)
-            element.setAttribute key, value for key, value of node
+            for key, value of node
+                element.setAttribute(key, value)
 
     return element
 {% endhighlight %}
