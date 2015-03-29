@@ -13,9 +13,11 @@ $base-line-height: 1.5;
 
 $spacing-unit:     30px;
 
-$text-color:       #111;
-$background-color: #fdfdfd;
-$brand-color:      #2a7ae2;
+$text-color:       #444;
+$background-color: #FEFEFE;
+$light-color:      #EE5544;
+$brand-color:      black;
+$brand-hover-color:$light-color;
 
 $grey-color:       #828282;
 $grey-color-light: lighten($grey-color, 40%);
