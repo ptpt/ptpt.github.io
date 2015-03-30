@@ -13,13 +13,20 @@
 .site-title {
     font-size: 26px;
     line-height: 56px;
-    letter-spacing: -1px;
     margin-bottom: 0;
     float: left;
+    font-family: $font-sans-serif;
+    font-weight: 700;
+    color: $light-color;
 
     &,
     &:visited {
-        color: $grey-color-dark;
+        color: $light-color;
+    }
+
+    .logo {
+        vertical-align: bottom;
+        height: 56px;
     }
 }
 
@@ -186,6 +193,7 @@
 .post-link {
     display: block;
     font-size: 24px;
+    font-weight: 400;
 }
 
 
