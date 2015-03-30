@@ -2,8 +2,6 @@
  * Site header
  */
 .site-header {
-    border-top: 5px solid $grey-color-dark;
-    border-bottom: 1px solid $grey-color-light;
     min-height: 56px;
 
     // Positioning context for the mobile navigation icon
@@ -169,7 +167,7 @@
  * Page content
  */
 .page-content {
-    padding: $spacing-unit 0;
+    padding: $spacing-unit * 3 0;
 }
 
 .page-heading {
@@ -240,5 +238,10 @@
         @include media-query($on-laptop) {
             font-size: 18px;
         }
+    }
+
+    a:hover {
+        color: $brand-hover-color;
+        text-decoration: underline;
     }
 }
