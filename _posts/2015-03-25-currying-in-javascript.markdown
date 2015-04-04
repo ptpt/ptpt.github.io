@@ -153,3 +153,10 @@ var f1 = uncurry(curry(f), 1);
 console.log(f1('a', 'b', 'c'));
 // => [ 'a', 'b', 'c' ]
 {% endhighlight %}
+
+## Conclusions
+
+Play with it if you are interested. All code in this article is
+available at
+[here](https://github.com/ptpt/ptpt.github.io/blob/master/_src/curry.js)
+and tested under Node.js.

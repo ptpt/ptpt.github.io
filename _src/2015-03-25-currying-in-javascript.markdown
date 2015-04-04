@@ -93,7 +93,7 @@ Some examples:
 #+sh block.awk name=test_uncurry curry.js
 {% endhighlight %}
 
-## Conclusions
+## Conclusion
 
 Play with it if you are interested. All code in this article is
 available at
