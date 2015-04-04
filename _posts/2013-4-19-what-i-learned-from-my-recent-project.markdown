@@ -4,7 +4,7 @@ title:  "What I Learned From My Recent Project"
 date:   2013-04-19 22:35:01
 ---
 
-> Update on 2015-03-30: I've moved to [jekyll](http://jekyllrb.com/).
+> Update on 2015-03-30: I've moved to [Jekyll](http://jekyllrb.com/).
 
 Today I released my own blogging system, [Taoblog](https://github.com/ptpt/taoblog),
 which has been powering this blog for months. This blogging system
