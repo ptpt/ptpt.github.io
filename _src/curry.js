@@ -1,3 +1,8 @@
+//     curry.js
+//     http://taopeng.me
+//     (c) 2015 Tao Peng
+
+
 // #+block curry
 var curry = function(f, nargs, args) {
     nargs = isFinite(nargs) ? nargs : f.length;
