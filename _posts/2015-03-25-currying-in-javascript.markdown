@@ -47,9 +47,9 @@ Obviously, it is a recursive pattern:
 var curry = function(f, args) {
     return function() {
         // 1. accumulate arguments
-        var args = args.concat(Array.prototype.slice.call(arguments));
+        var newArgs = args.concat(Array.prototype.slice.call(arguments));
         // 2. return another curried function
-        return curry(f, args);
+        return curry(f, newArgs);
     }
 }
 {% endhighlight %}
@@ -154,7 +154,7 @@ console.log(f1('a', 'b', 'c'));
 // => [ 'a', 'b', 'c' ]
 {% endhighlight %}
 
-## Conclusions
+## Conclusion
 
 Play with it if you are interested. All code in this article is
 available at
