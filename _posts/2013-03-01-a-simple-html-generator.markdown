@@ -2,7 +2,7 @@
 layout: post
 title:  "A Simple HTML Generator"
 date:   2013-03-01 22:35:01
-categories: CoffeeScript JavaScript
+categories: JavaScript
 ---
 
 I find It's very common for me to generate HTML in JavaScript. I used
@@ -33,36 +33,46 @@ greet('world'); // =>  <div>hello<span class="strong">world</span></div>
 
 It is not shorter, but much simpler, and easier to read.
 
-Here is the code, written in CoffeeScript:
+The code is straightforward:
+{% highlight javascript %}
+var makeDOM = function (array) {
+    if (!array || !array.length) return null;
 
-{% highlight coffeescript %}
- makeDom = (array) ->
-    if not array.length
-         return null
+    var child,
+        root = array[0],
+        element = isElement(root)? root : document.createElement(root);
 
-    if array[0] instanceof HTMLElement
-        element = array[0]
-    else
-        element = document.createElement(array[0])
+    for (var i=1, l=array.length; i<l; i+=1) {
+        child = array[i];
 
-    for node in array[1..]
-        # append strings and text nodes will as text node
-        if toString.call(node) == '[object String]'
-            element.appendChild document.createTextNode(node)
-        else if node instanceof Text
-            element.appendChild(node)
+        // append string and text node as text node
+        if (isString(child)) {
+            element.appendChild(document.createTextNode(child));
+        } else if (child instanceof Text) {
+            element.appendChild(child);
+        }
 
-        # append arrays as child nodes
-        else if Array.isArray(node)
-            child = makeDom(node)
-            element.appendChild(child) if child?
+        // append array and element as child node
+        else if (isArray(child)) {
+            var dom = makeDOM(child);
+            if (dom) element.appendChild(dom);
+        } else if (isElement(child)) {
+            element.appendChild(child);
+        }
 
-        # append Attr instance and objects as attributes
-        else if node instanceof Attr
-            element.setAttributeNode(node)
-        else if node == Object(node)
-            for key, value of node
-                element.setAttribute(key, value)
+        // append attr and object as attribute
+        else if (child instanceof Attr) {
+            element.setAttribute(child);
+        } else if (isObject(child)) {
+            for (var key in child) {
+                element.setAttribute(key, child[key]);
+            }
+        }
+    }
 
-    return element
+    return element;
+};
 {% endhighlight %}
+
+The full code is available
+[here](https://github.com/ptpt/ptpt.github.io/blob/master/_src/makedom.js).
