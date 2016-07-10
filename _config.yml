@@ -2,7 +2,7 @@
 title: Tao Peng
 # email: pt@taopeng.me
 description: > # this means to ignore newlines until "baseurl:"
-  Thoughts on programming, hacking, technology and maps.
+  Thoughts on programming and maps.
 baseurl: "" # the subpath of your site, e.g. /blog/
 url: "http://taopeng.me" # the base hostname & protocol for your site
 twitter_username: ptpt
